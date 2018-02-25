@@ -1,0 +1,126 @@
+
+.my_trasform(@transform){
+-o-transform+_: @transform;
+-ms-transform+_:@transform;
+ -moz-transform+_: @transform; 
+-webkit-transform+_: @transform ;
+ transform+_: @transform ;  
+}
+
+ .clearfix {
+	&:before ,&:after{
+    content: "";
+    display: table;
+    clear: both;}
+}
+
+.box-sizing(@box-model) { 
+-o-box-sizing:@box-model;
+-webkit-box-sizing: @box-model; // Safari <= 5 
+-moz-box-sizing: @box-model; // Firefox <= 19 
+box-sizing: @box-model; 
+}
+
+.opacity (@alpha) {
+    @ms-alpha : @alpha*100;
+    -ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+    // TODO: fix me
+    //filter:~`"alpha(opacity="+@ms-alpha+")"`;
+    -moz-opacity: @alpha;
+    -khtml-opacity: @alpha;
+    opacity: @alpha;
+}
+
+
+.borderRadius(@radius:5px){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+
+.transition(@transition:0.3s){
+-ms-transition:  @transition;
+-webkit-transition:  @transition;
+-moz-transition:  @transition;
+ transition: @transition;
+}
+
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+}
+
+.golden_section(@n:1){
+  width: (100% / 3) * @n;
+}
+
+@base_color: #f5f5f5;
+@theme_color: #2e3192;
+@accordion_bg_color: #b9beea;
+@color_white: #FFF;
+@color_black: #000;
+@input_bd_color: #888;
+
+
+.theme_button(){
+    background-color: @theme_color;
+    background: url(../image/block_2.png) top left  no-repeat;
+    background-size: cover;
+    color: @color_white;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    .borderRadius(0px);
+    .transition();
+    padding: 3px 6px 3px 23px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+
+    &:hover{
+    color: @color_black;  
+    background-position-x: -12px;
+    background-color: @theme_color;
+    }
+}
+
+.sidebar_h3(){
+    background: @theme_color;
+    color: @color_white;
+    padding: 5px 10px 11px;
+}
+
+.font(@weight:normal; @size:16px; @font-family: ArialMT , sans-serif){
+    font:@arguments;
+}
+
+
+.font-face(@fontName: @default_font_fam; @fontWeight: normal; @fontStyle: normal) {
+    @font-face {
+        font-family: @fontName;
+        src: url('../fonts/@{fontName}/@{fontName}.eot');
+        src: url('../fonts/@{fontName}/@{fontName}.otf');
+        src: url('../fonts/@{fontName}/@{fontName}.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/@{fontName}/@{fontName}.woff') format('woff'),
+             url('../fonts/@{fontName}/@{fontName}.ttf') format('truetype'),
+             url('../fonts/@{fontName}/@{fontName}.svg#@{fontName}') format('svg');
+        font-weight: @fontWeight;
+        font-style: @fontStyle;
+    }
+}
+
+@default_font_fam: ArialMT;
+@header_font_fam: MyriadPro;
+
+.media_min(@size,@rules) {
+    @px: px;
+    @size_px: e("@{size}@{px}");
+    @media (max-width: @size_px) {
+        @rules();
+    };
+};
+
