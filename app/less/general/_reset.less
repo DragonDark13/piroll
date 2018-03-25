@@ -17,18 +17,25 @@ background: #fff;
 body, code, dl, dd, form, pre {
 margin: 0;
 }
+
+a{
+color: @textColor;
+}
+
 a:link {
-color: #009;
+color: @textColor;
 }
 a:link, a:visited, ins {
 text-decoration: none;
 }
 a:visited {
-color: #505;
+color: @textColor;
 }
 a:hover {
-text-decoration: underline;
+color: @base_color;
+text-decoration: none;
 }
+
 a:link img, a:visited img, object, fieldset, abbr, acronym {
 border: none;
 }
@@ -108,4 +115,15 @@ content: "\201c";
 }
 q > q:before {
 content: "\201e";
+}
+
+
+body::-webkit-scrollbar { width: 0; }
+
+body{
+	word-wrap: break-word;
+}
+
+img{
+	max-width: 100%;
 }

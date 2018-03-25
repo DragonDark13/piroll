@@ -1,10 +1,11 @@
 @charset "utf-8";
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+/*=============================
+=            Mixin            =
+=============================*/
+/*=====  End of Mixin  ======*/
+/*=============================
+=            Reset            =
+=============================*/
 * {
   padding: 0;
   margin: 0;
@@ -18,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  font: 14px/18px ArialMT, sans-serif;
+  font: 14px/18px Nunito Sans, sans-serif;
 }
 code,
 kbd,
@@ -41,8 +42,11 @@ form,
 pre {
   margin: 0;
 }
+a {
+  color: #191919;
+}
 a:link {
-  color: #009;
+  color: #191919;
 }
 a:link,
 a:visited,
@@ -50,10 +54,11 @@ ins {
   text-decoration: none;
 }
 a:visited {
-  color: #505;
+  color: #191919;
 }
 a:hover {
-  text-decoration: underline;
+  color: #10c9c3;
+  text-decoration: none;
 }
 a:link img,
 a:visited img,
@@ -168,6 +173,320 @@ q > q:after {
 q > q:before {
   content: "\201e";
 }
+body::-webkit-scrollbar {
+  width: 0;
+}
+body {
+  word-wrap: break-word;
+}
+img {
+  max-width: 100%;
+}
+/*=====  End of Reset  ======*/
+/*===============================
+=            General            =
+===============================*/
 li {
   margin-left: auto;
 }
+h1 {
+  font-size: 38px;
+  font-family: Montserrat;
+  color: #171717;
+  line-height: 2.211;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.48px;
+}
+h5 {
+  font-size: 18px;
+  font-family: Nunito Sans;
+  color: #787878;
+  text-align: center;
+  line-height: 28px;
+  letter-spacing: 0.09px;
+}
+footer a,
+footer a:visited,
+footer a:link {
+  color: #bcbcbc;
+}
+footer a:hover {
+  color: #10c9c3;
+}
+footer p {
+  color: #bcbcbc;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.075px;
+  margin-top: 18px;
+}
+footer h5 {
+  font-family: Montserrat;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: -0.22px;
+}
+/*=====  End of General  ======*/
+/*==============================
+=            Layout            =
+==============================*/
+.header {
+  padding: 38px 0;
+}
+.main_menu {
+  text-align: right;
+  margin-right: -1px;
+}
+.top_text {
+  background: #f6f6f6;
+  padding-top: 77px;
+  padding-bottom: 92px;
+}
+.top_text h1 {
+  text-indent: 2px;
+}
+.top_text h5 {
+  width: 46%;
+  margin: auto;
+  margin-top: 3px;
+}
+.our_work > .row {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+footer {
+  background: #141414;
+  padding-top: 92px;
+  padding-bottom: 94px;
+}
+footer h5 {
+  color: #FFF;
+}
+.contact {
+  text-align: left;
+  padding-left: 46%;
+}
+.footer_menu_1,
+.footer_menu_2,
+.footer_menu_3 {
+  float: left;
+  width: 33.33333333%;
+}
+.footer_menu_1 {
+  padding-top: 0px;
+  margin-top: 1px;
+}
+@media (max-width: 992px) {
+  .top_text h5 {
+    width: 100%;
+  }
+  footer h5,
+  .copyright_container {
+    text-align: center;
+  }
+  .copyright_container {
+    padding-bottom: 25px;
+  }
+  .contact {
+    padding-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .contact {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .header {
+    padding: 15px 0;
+  }
+  .navbar-collapse {
+    margin-top: 15px;
+    border-top: 1px solid #191919;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 369px) {
+  .footer_menu_1,
+  .footer_menu_2,
+  .footer_menu_3 {
+    float: none;
+    width: 100%;
+  }
+  .footer_menu_1,
+  .footer_menu_2,
+  .footer_menu_3 {
+    text-align: center;
+    padding-bottom: 15px;
+  }
+}
+/*=====  End of Layout  ======*/
+/*==============================
+=            Module            =
+==============================*/
+.main_menu li {
+  display: inline-block;
+}
+.main_menu li a {
+  display: block;
+  font-size: 12px;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  line-height: 2;
+  padding: 0px 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.main_menu li:last-child a {
+  padding-right: 0;
+}
+.our_work .col-lg-3 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.work_container {
+  position: relative;
+  overflow: hidden;
+}
+.work_container:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #10c9c3;
+  z-index: 1;
+}
+.work_container:after,
+.work_container .icon {
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.work_container .icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+}
+.work_container i {
+  font-size: 48px;
+  color: #FFF;
+  display: inline-block;
+}
+.work_container:hover:after {
+  opacity: 0.85;
+}
+.work_container:hover .icon {
+  opacity: 1;
+}
+.work_container img {
+  width: 100%;
+}
+footer ul li a {
+  font-size: 15px;
+  line-height: 24px;
+}
+footer ul[class*="menu"] li {
+  display: block;
+}
+footer ul[class*="menu"] li a {
+  text-transform: none;
+  font-family: Nunito Sans;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.075px;
+}
+.footer_menu_1 li a {
+  padding-left: 45%;
+}
+.footer_menu_2 li a {
+  padding-left: 15%;
+}
+.footer_menu_3 li a {
+  padding-left: 36%;
+}
+@media (max-width: 992px) {
+  .footer_menu_1 li a {
+    padding-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .main_menu li {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) and (min-width: 600px) {
+  .our_work .col-lg-3 {
+    width: 50%;
+  }
+}
+@media (max-width: 369px) {
+  .footer_menu_2 li a,
+  .footer_menu_3 li a {
+    padding-left: 0;
+  }
+}
+/*=====  End of Module  ======*/
+/*=============================
+=            State            =
+=============================*/
+.for {
+  width: 20px;
+  height: 44px;
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none;
+    padding-top: 15px;
+  }
+  .navbar-collapse.in {
+    display: block;
+  }
+  .navbar-toggle .pe-7s-close {
+    display: none;
+  }
+  .js_response_meni .navbar-toggle .pe-7s-menu {
+    display: none;
+  }
+  .js_response_meni .navbar-toggle .pe-7s-close {
+    display: inline-block;
+  }
+  .navbar-toggle {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 0;
+    margin-left: auto;
+    border: 1px solid #191919;
+  }
+  .navbar-toggle i {
+    line-height: 30px;
+    color: #191919;
+    font-size: 24px;
+  }
+}
+/*=====  End of State  ======*/
