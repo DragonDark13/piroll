@@ -2,6 +2,8 @@
 	padding: 38px 0;
 }
 
+
+
 .main_menu{
 	text-align: right;
 	margin-right: -1px;
@@ -63,12 +65,107 @@ footer{
 	width: 100% /3;
 }
 
+.product_conainer{
+	background: #f6f6f6;
+	 
+
+	.row{
+		margin: 0px;
+	}
+
+	h1{
+		text-align: left;
+	    text-indent: -3px;
+	}
+
+	.product_text_container{
+	padding-top: 79px;
+    margin-left: auto;
+    padding-left: 30px;
+    text-align: left;
+
+	    @media (min-width: 768px) {
+	        width:750px ;
+			width: 750px;
+			margin: auto;
+			padding: 0 15px 20px;
+		}
+
+		@media (min-width: 992px) {
+		        width:970px / 2;
+		}
+
+		@media (min-width: 1200px) {
+		        width:1200px / 2;
+		}
+
+	}
+
+	.photo{
+		padding: 0;
+	}
+
+	img{
+		width: 100%;
+	}
+
+	.description{
+		padding-top: 6px;
+	    margin-bottom: 47px;
+        padding-right: 20%;
+	}
+
+	.description,
+	ul{
+		font-size: 16px;
+		line-height: 24px;
+		.convert_ltrsp_ps_to_css(16,5);
+	}
+
+	p{
+		margin-bottom: 24px;
+	}
+
+	li{
+         margin-bottom: 6px;
+	}
+
+	strong{
+		    padding-right: 10px;
+	}
+
+	.date strong{
+		padding-right: 14px;
+	}
+
+}
+
+.pagination{
+	background-color: @color_white;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-family: @header_font_fam;
+	font-weight: 600;
+}
+
 .footer_menu_1{
     padding-top: 0px;
     margin-top: 1px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
+
+	.product_conainer .product_text_container{
+		padding-top: 0px;
+	}
+
+	.product_conainer .description{
+		padding-right: 0;
+	}
+	
+}
+
+@media (max-width: 991px) {
 
 	.top_text h5{
 		width: 100%;
@@ -86,10 +183,19 @@ footer{
 	.contact{
 		padding-left: 0;
 	}
+
+	.product_conainer img{
+	    width: 750px;
+	    margin: auto;
+	    padding: 0 15px ;
+	    display: block;
+	}
+
+
 	
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
 	.contact{
 		text-align: center;
@@ -104,6 +210,11 @@ footer{
 		margin-top: 15px;
 		border-top: 1px solid @textColor;
 		padding-top: 10px;
+	}
+
+	.product_conainer img{
+		width: 100%;
+		padding: 0;
 	}
 
 }

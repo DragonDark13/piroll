@@ -108,6 +108,93 @@ footer ul[class*="menu"] li{
    padding-left: 36%;
 }
 
+.prev,
+.next{
+
+	a{
+		display: inline-block;
+	}
+
+	i{
+	font-size: 24px;
+	color: @color_black;
+	line-height: 84px;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+	span{
+		line-height: 99px;
+		.convert_ltrsp_ps_to_css(100, 12);
+	    word-spacing: -2px;
+	}
+
+	a:hover i{
+		color: @base_color;
+	}
+
+}
+
+.prev{
+
+	a{
+		margin-left: -9px;
+	}
+}
+
+.next{
+	text-align: right;
+
+	a{
+		margin-right: -9px;
+	}
+
+	span{
+		padding-right: 1px;
+	}
+}
+
+.pagination .icon_container{
+	display: block;
+	width: 16px;
+	height: 16px;
+	.base_effect;
+	margin: 41px auto;
+
+	*{
+	background-color: rgb(37, 37, 37);
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	}
+
+	.icon_elem_1{
+		left: 0;
+		top: 0;
+	}
+
+	.icon_elem_2{
+		right: 0;
+		top: 0;
+	}
+
+	.icon_elem_3{
+		bottom: 0;
+		left: 0;
+	}
+
+	.icon_elem_4{
+		bottom: 0;
+		right: 0;
+	}
+
+	&:hover *{
+		background: @base_color;
+	}
+}
+
+
+
 @media (max-width: 992px) {
 
 	.footer_menu_1 li a{
@@ -116,7 +203,12 @@ footer ul[class*="menu"] li{
 	
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 767px) {
+
+		.pagination .row>*{
+			width: 100% / 3;
+		}
 
 	.main_menu li{
 		display: block;
@@ -133,14 +225,31 @@ footer ul[class*="menu"] li{
 	
 }
 
+@media (max-width: 600px) {
+
+	.pagination .row>*{
+			width: 100%;
+		}
+
+		.prev,
+		.next{
+			text-align: center;
+		}
+	
+}
+
 
 
 @media (max-width: 369px) {
+
+	.product_conainer h1{
+		font-size: 24px;
+		line-height: 70px;
+	}
 
 .footer_menu_2 li a,
 	.footer_menu_3 li a{
 		padding-left: 0;
 	}
-	
-
 }
+
