@@ -16,8 +16,7 @@
   del         = require('del'), // Подключаем библиотеку для удаления файлов и папок;
   pngquant    = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
   cache       = require('gulp-cache'),
-  autoprefixer = require('gulp-autoprefixer'),
-  uncss = require('gulp-uncss');
+  autoprefixer = require('gulp-autoprefixer');
 
   
 
@@ -46,9 +45,6 @@
     return gulp.src('app/less/style.less') // Берем источник
         .pipe(lessc()) // Преобразуем less в CSS посредством gulp-less
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // С
-        // .pipe(uncss({
-        //     html: ['app/*.html']
-        // }))
         .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
         .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });

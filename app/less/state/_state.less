@@ -1,7 +1,3 @@
-.for{
-	width: 20px;
-	height: 44px;
-}
 
 @media (max-width: 767px) {
 
@@ -13,14 +9,22 @@ padding-top: 15px;
 
 
 
-.js_response_meni .navbar-toggle .pe-7s-menu,
+
 .navbar-toggle .pe-7s-close{
 display: none;
 }
 
-.js_response_meni .navbar-toggle .pe-7s-close{
-display: inline-block;
+.js_response_meni  .navbar-toggle .pe-7s-close{
+	display: block;
 }
+
+.js_response_meni  .navbar-toggle .pe-7s-menu{
+	display: none;
+}
+
+//  .navbar-toggle i{
+// display: inline-block;
+// }
 
 .navbar-toggle {
 	cursor: pointer;
@@ -38,4 +42,22 @@ display: inline-block;
 	font-size: 24px;
 }
 	
+}
+
+.header.one_page{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 999;
+
+	.main_menu li a{
+		padding: 0px 12.6px;
+	}
+
+	.main_menu li:last-child a{
+		padding-right: 0;
+	}
+
+
 }
