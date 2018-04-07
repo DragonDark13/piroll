@@ -49,12 +49,14 @@ footer{
 	h5{
 		color: @color_white;
 	}
-}
 
-.contact{
+	.contact{
     text-align: left;
     padding-left: 46%;
 }
+
+}
+
 
 
 
@@ -268,8 +270,36 @@ h2+p{
 
 .testimonials{
 	background-color: @base_color;
+}
 
-	
+article.contact{
+	background-color: @colorLightGray;
+    text-align: center;
+    padding-top: 84px;
+    padding-bottom: 100px;
+
+    h2{
+	    letter-spacing: -0.2px;
+    }
+
+    input,
+    textarea{
+    	width: 100%;
+    }
+
+    h2~.row{
+    	width: 60%;
+    	margin: auto;
+    }
+
+    textarea{
+    	height: 170px;
+    }
+
+    [type="submit"]{
+		margin-top: 2px;
+		padding: 0.5px 37.5px;
+    }
 
 
 }
