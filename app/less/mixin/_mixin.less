@@ -76,15 +76,19 @@ box-sizing: @box-model;
     outline: none;
     .borderRadius(0px);
     .transition();
-    padding: 0px 47px;
+    padding: 0px 10px;
     cursor: pointer;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     .convert_ltrsp_ps_to_css(100,12);
-    line-height: 53px;
+    line-height: 54px;
     text-align: center;
     display: inline-block;
+    font-family: @header_font_fam;
+    width: 180px;
+    text-align: center;
+    .text_cut;
 
     &:hover{
     background-color: darken(@base_color, 10%);
@@ -157,5 +161,12 @@ letter-spacing: ~"@{letter_spacing}px" ;
     bottom: 0;
     width: 100%;
     height: 100%;
+}
+
+.text_cut(){
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 

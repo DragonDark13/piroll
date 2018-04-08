@@ -163,7 +163,7 @@ footer{
 
 	h5{
 	    margin-top: 4px;
-	    padding-left: 5px;
+	    padding-left: 6px;
 	    text-align: left;
         padding-right: 4.3%;
         margin-bottom: 35px;
@@ -273,6 +273,10 @@ article.contact{
 	    letter-spacing: -0.2px;
     }
 
+    h2+p{
+    	    width: 46%;
+    }
+
     input,
     textarea{
     	width: 100%;
@@ -281,6 +285,7 @@ article.contact{
     h2~.row{
     	width: 60%;
     	margin: auto;
+	    padding-top: 1px;
     }
 
     textarea{
@@ -288,8 +293,10 @@ article.contact{
     }
 
     [type="submit"]{
-		margin-top: 2px;
-		padding: 0.5px 37.5px;
+		padding: 0.5px 5px;
+		min-width: 180px;
+		text-align: center;
+	    letter-spacing: 1.1px;
     }
 
 
@@ -403,11 +410,13 @@ article.contact{
     h2+p{
     	    letter-spacing: 0.1px;
     	        width: 47%;
+    	            margin-bottom: 35px;
     }
 
     .button{
-    	width: 180px;
-    	&:extend( article.contact [type="submit"] );
+		.theme_button;
+		letter-spacing: 0.8px;
+		margin: auto;
     }
 
 
@@ -416,6 +425,67 @@ article.contact{
 
 
 /*=====  End of About  ======*/
+
+
+/*===========================
+=            Contact            =
+===========================*/
+
+article.contact{
+	padding-top: 85px;
+
+	h2{
+		    margin-left: -1px;
+	}
+
+	.contact_text_container{
+		text-align: left;
+	}
+
+	.description{
+		margin-top: 18px;
+		letter-spacing: 0.1px;
+		padding-right: 19%;
+	    margin-bottom: 26px;
+        margin-left: -1px;
+	}
+
+	.contact_list{
+		&:extend( .product_conainer ul);
+	    letter-spacing: 0.28px;
+	}
+
+	.form{
+		    padding-top: 15px;
+		    text-align-last: auto;
+
+		input,
+		textarea{
+			padding: 12px 20px;
+		}
+
+		.button{
+    	margin-top: 0;
+		}
+
+		.map_container{
+			padding-top: 99px;
+		}
+	}
+
+
+
+	.map{
+		background-color: #e0e0e0;
+		height: 470px;
+		width: 100%;
+	}
+}
+
+
+
+/*=====  End of Contact  ======*/
+
 
 
 
