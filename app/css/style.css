@@ -360,11 +360,11 @@ footer .contact {
   text-indent: -3px;
 }
 .product_conainer .product_text_container {
-  padding-top: 79px;
-  text-align: left;
   margin-left: auto;
   padding: 0;
   padding-left: 30px;
+  padding-top: 79px;
+  text-align: left;
 }
 @media (min-width: 768px) {
   .product_conainer .product_text_container {
@@ -1193,7 +1193,7 @@ footer ul[class*="menu"] li a {
   }
 }
 .header.one_page {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
