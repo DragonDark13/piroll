@@ -105,7 +105,7 @@ footer ul[class*="menu"] li{
 }
 
 .footer_menu_3 li a{
-   padding-left: 36%;
+   padding-left: 36.8%;
 }
 
 .prev,
@@ -239,13 +239,6 @@ footer ul[class*="menu"] li{
 	}
 }
 
-.load_more{
-	color: #8e8e8e;
-	background: #f5f5f5;
-    padding: 35px 0px;
-    text-align: center;
-    letter-spacing: 0.9px;
-}
 
 .service_container{
 	text-align: center;
@@ -268,12 +261,12 @@ footer ul[class*="menu"] li{
 	}
 }
 
-.slider_container>:not([class*="1"]){
-	display: none;
-}
+// .slider_container>:not([class*="1"]){
+// 	display: none;
+// }
 
 [class*="slide_"]{
-	padding: 174px 14.2% 168px;
+	padding: 174px 166.135px 81px;
 	text-align: center;
 
 	h3,
@@ -289,6 +282,33 @@ footer ul[class*="menu"] li{
 		    margin-top: 20px;
 	}
 }
+
+.lSSlideOuter .lSPager.lSpg > li{
+	min-width: 17px;
+	min-height: 14px;
+	text-align: center;
+	padding: 0;
+
+	a{
+	border-radius: 50%;
+	background-color: rgb(176, 232, 230);
+	width: 6px;
+	height: 6px;
+	z-index: 69;
+	line-height: 10px;
+	vertical-align: middle;
+	}
+
+	&:hover a, 
+	&.active a {
+	background-color: @color_white;
+	width: 10px;
+	height: 10px;
+	}
+
+} 
+
+
 
 .client{
 	text-align: center;

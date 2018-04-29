@@ -12,6 +12,7 @@
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "browserify": "^16.1.0",
+    "browserify-css": "^0.14.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
@@ -27,6 +28,9 @@
     "watchify": "^3.10.0"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "jquery-viewport-checker": "^1.8.8",
+    "jquery.animate-number": "0.0.14",
+    "lightslider": "^1.1.6"
   }
 }

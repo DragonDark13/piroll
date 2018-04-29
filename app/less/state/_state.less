@@ -58,6 +58,28 @@ display: none;
 	.main_menu li:last-child a{
 		padding-right: 0;
 	}
+}
 
+.work_container,
+.icon_container,
+.left_part,
+.right_part,
+.need_project .button,
+.service_container ,
+.client
+{
+	.opacity(0);
+	.transition;
 
+	&.animated{
+	.opacity(1);
+	}
+}
+
+.more_work_container{
+	display: none;
+
+	&.show{
+		display: block;
+	}
 }

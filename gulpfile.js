@@ -16,16 +16,27 @@
   del         = require('del'), // Подключаем библиотеку для удаления файлов и папок;
   pngquant    = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
   cache       = require('gulp-cache'),
-  autoprefixer = require('gulp-autoprefixer');
+  autoprefixer = require('gulp-autoprefixer'),
+  browserifyCss = require("browserify-css");
 
   
 
-    gulp.task('browserify', function() {
+gulp.task('browserify', function() {
   return browserify(sourceFile)
   .bundle()
   .pipe(source(destFile))
   .pipe(gulp.dest(destFolder));
 });
+
+gulp.task('browserifyCss', function() {
+  return browserify('app/js/node_mod_css.js')
+  .transform(require('browserify-css'))
+  .bundle()
+  .pipe(source('bundle_node_mod_css.js'))
+  .pipe(gulp.dest(destFolder));
+});
+
+
 
     gulp.task('watch', function() {
   var bundler = watchify(sourceFile);
@@ -51,7 +62,7 @@
 
 
 
-   gulp.task('css-libs', ['less'], function() {
+   gulp.task('css-libs', ['less', 'browserifyCss'], function() {
     return gulp.src('app/css/style.css') // Выбираем файл для минификации
         .pipe(cssnano()) // Сжимаем
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
@@ -96,7 +107,8 @@ gulp.task('watch', ['browser-sync', 'css-libs', 'script'], function() {
     });
      // gulp.watch('app/less/**/*.less', browserSync.reload);
     gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-    gulp.watch(sourceFile,['script']); 
+    gulp.watch('app/js/node_mod_css.js',['browserifyCss']); 
+     gulp.watch(sourceFile,['script']); 
     gulp.watch('app/js/**/*.js',browserSync.reload); // Наблюдение за JS файлами в папке js
     gulp.watch('app/images/**',browserSync.reload);
     gulp.watch('app/fonts/**',browserSync.reload);
@@ -118,7 +130,7 @@ gulp.task('img', function() {
         .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('build', ['clean','img','less', 'script'], function() {
+gulp.task('build', ['clean','img','less', 'script','browserifyCss'], function() {
 
     var buildCss = gulp.src([ // Переносим CSS стили в продакшен
         'app/css/style.css',

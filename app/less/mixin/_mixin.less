@@ -170,3 +170,40 @@ letter-spacing: ~"@{letter_spacing}px" ;
     overflow: hidden;
 }
 
+.hidden_placeholder(){
+
+&:focus {
+
+    &::-webkit-input-placeholder {
+    .opacity (0);}
+
+    &::-moz-placeholder          {
+    .opacity (0);}
+
+    &:-moz-placeholder   {
+    .opacity (0);}
+
+    &:-ms-input-placeholder      {
+     .opacity (0);
+ }
+
+  }
+}
+
+input,
+textarea{
+    .hidden_placeholder;
+}
+
+.mixin_right_trial(
+@width:11px,
+@height:17px,
+@background: @color_white )
+{
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: @width solid @background  ;
+  border-top:  @height/2 solid  transparent;
+  border-bottom: @height/2 solid  transparent ;
+}
