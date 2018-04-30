@@ -121,6 +121,7 @@ footer ul[class*="menu"] li{
 	line-height: 84px;
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: -3px;
 	}
 
 	span{
@@ -261,6 +262,33 @@ footer ul[class*="menu"] li{
 	}
 }
 
+.start-video {
+		position: absolute;
+		top: 42.1%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+		transition: all 0.3s;
+		border-radius: 50%;
+		background-color: @base_color;
+		width: 85px;
+		height: 85px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0px 0px 17px 2px fade( @color_black ,15% );
+
+		&:hover{
+			background-color: darken(@base_color, 10%);
+			box-shadow: 0px 0px 1px 2px fade( @color_black ,15% );
+		}
+	}
+
+	.start-video-icon{
+		.mixin_right_trial;
+	}
+
 // .slider_container>:not([class*="1"]){
 // 	display: none;
 // }
@@ -368,6 +396,24 @@ footer ul[class*="menu"] li{
 
 /*=====  End of Contact page  ======*/
 
+@media (max-width: 1230px) {
+
+	.icon_container {
+		text-align: center;
+
+		&+.text,
+		&+.text h5{
+			text-align: center;
+		}
+	}
+
+	.number_container h6{
+		margin-left: 0;
+		margin-top: 0;
+	}
+	
+}
+
 
 
 
@@ -377,7 +423,65 @@ footer ul[class*="menu"] li{
 	.footer_menu_1 li a{
 		padding-left: 0;
 	}
+
+	.number_container{
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	[class*="slide_"] {
+    padding: 70px 50px 40px;
+	}
 	
+}
+
+
+
+@media (max-width: 768px){
+
+	[class*="slide_"] {
+    padding: 30px 0px 20px;
+	}
+
+	.testimonials .lSSlideOuter .lSPager.lSpg{
+		padding-bottom: 20px;
+	}
+
+	[class*="slide_"] h3{
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	.main_menu li{
+		display: block;
+		text-align: center;
+	}
+
+	h2 + p{
+		width: 100%;
+	}
+
+	div.client{
+
+		&:nth-child(1),
+		&:nth-child(1)~*{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+
+	}
+	
+}
+
+@media (min-width: 768px){
+
+	.main_menu li{
+		display: inline-block;
+		text-align: right;
+	}
+
+
 }
 
 
@@ -386,11 +490,6 @@ footer ul[class*="menu"] li{
 		.pagination .row>*{
 			width: 100% / 3;
 		}
-
-	.main_menu li{
-		display: block;
-		text-align: center;
-	}
 	
 }
 
@@ -415,11 +514,42 @@ footer ul[class*="menu"] li{
 	
 }
 
+@media (max-width: 520px) {
+
+	.number_container{
+		width: 100%;
+		float: none;
+	}
+	
+}
+
+@media (max-width: 510px) {
+
+	div.client{
+		width: 50%;
+	}
+	
+}
+
+@media (max-width: 400px) {
+
+	.services .col-xs-4{
+		width: 100%;
+		float: none;
+	}
+	
+}
+
 
 
 @media (max-width: 369px) {
 
-	.product_conainer h1{
+	div.client{
+		width: 100%;
+		float: none;	
+	}
+
+	.product_container h1{
 		font-size: 24px;
 		line-height: 70px;
 	}
