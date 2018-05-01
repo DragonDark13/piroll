@@ -7,15 +7,15 @@ var lightSlider= require('lightslider');
 
 jQuery(document).ready(function($) {
 
-  	var myWidth = 0;
-        myWidth = window.innerWidth;
-        jQuery('body').prepend('<div id="size" style="background:#000;padding:5px;position:fixed;z-index:9999;color:#fff;">Width = '+myWidth+'</div>');
-        jQuery(window).resize(function(){
-            var myWidth = 0;
-            myWidth = window.innerWidth;
-            jQuery('#size').remove();
-            jQuery('body').prepend('<div id="size" style="background:#000;padding:5px;position:fixed;z-index:9999;color:#fff;">Width = '+myWidth+'</div>');
-        });
+  	// var myWidth = 0;
+   //      myWidth = window.innerWidth;
+   //      jQuery('body').prepend('<div id="size" style="background:#000;padding:5px;position:fixed;z-index:9999;color:#fff;">Width = '+myWidth+'</div>');
+   //      jQuery(window).resize(function(){
+   //          var myWidth = 0;
+   //          myWidth = window.innerWidth;
+   //          jQuery('#size').remove();
+   //          jQuery('body').prepend('<div id="size" style="background:#000;padding:5px;position:fixed;z-index:9999;color:#fff;">Width = '+myWidth+'</div>');
+   //      });
 
             /* Responsive meni */
 
@@ -79,8 +79,8 @@ jQuery(document).ready(function($) {
 
   jQuery('.slider_container').lightSlider({
       item: 1,
-      auto:false,
-      loop:false,
+      auto:true,
+      loop:true,
       pauseOnHover: true,
       adaptiveHeight:true,
       controls: false,
@@ -120,12 +120,29 @@ jQuery(document).ready(function($) {
         }
     }
 
-    $(document).on('click', '.start-video', function () {
-        $(this).hide();
-        $("#player").show();
-        $("#thumbnail_container").hide();
+    jQuery(document).on('click', '.start-video', function () {
+        jQuery(this).hide();
+        jQuery("#player").show();
+        jQuery("#thumbnail_container").hide();
         player.playVideo();
     });
+
+    /* progress bar */
+
+
+    jQuery('.progress-bar').viewportChecker({
+      callbackFunction: function(elem, action){
+         var percent = elem.attr('data-progress');
+
+          elem.animate({
+          width: percent +'%'
+          }, 1300, function() {
+          // Animation complete.
+          });
+      }
+  });
+    
+
 
   });
 

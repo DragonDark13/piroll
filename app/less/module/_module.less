@@ -198,13 +198,57 @@ footer ul[class*="menu"] li{
 =            One Page            =
 ================================*/
 
-.scills_list li{
+.skills_list li{
+	margin-bottom: 31px;
 
-	.scill_text *{
+
+	.skill_text *{
 		display: inline-block;
 	}
 
+	.skill_text{
+		margin-bottom: 9px;
+	}
+
+	.title{
+		letter-spacing: 0.9px;
+	}
+
+	.percent{
+		    padding-left: 14px;
+		    font-size: 13px;
+		    text-transform: uppercase;
+		    font-family: @header_font_fam;
+		    color: @color_black;
+		    font-weight: 500;
+		    letter-spacing: 1px;
+	}
+
+	&:nth-child(2) .percent{
+		padding-left: 13px;
+	}
+
+	&:nth-child(3) .percent{
+		padding-left: 15px;
+	}
+
 }
+
+[class*="skill_progress_"] {
+  background-color: rgb(216, 216, 216);
+  height: 3px;
+  width: 100%;
+  .base_effect;
+
+  .progress-bar{
+		.after_bl;
+		background-color: @base_color;
+		width: 0%;
+		.transition;
+  }
+
+}
+
 
 .number_container{
     padding-top: 92px;

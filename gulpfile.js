@@ -17,7 +17,10 @@
   pngquant    = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
   cache       = require('gulp-cache'),
   autoprefixer = require('gulp-autoprefixer'),
-  browserifyCss = require("browserify-css");
+  browserifyCss = require("browserify-css"),
+  notify = require( 'gulp-notify' );
+
+
 
   
 
@@ -54,10 +57,16 @@ gulp.task('browserifyCss', function() {
 
    gulp.task('less', function(){ // Создаем таск less
     return gulp.src('app/less/style.less') // Берем источник
-        .pipe(lessc()) // Преобразуем less в CSS посредством gulp-less
+        .pipe(lessc().on( 'error', notify.onError(
+      {
+        message: "<%= error.message %>",
+        title  : "LESS Error!"
+      } ) )
+      ) // Преобразуем less в CSS посредством gulp-less
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // С
         .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
-        .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
+        .pipe( notify( 'LESS - good work!' ) )
+        .pipe(browserSync.reload({stream: true})); // Обновляем CSS на странице при изменении
 });
 
 
