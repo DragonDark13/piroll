@@ -892,12 +892,16 @@ article.contact.contact_with_info .map {
     width: 50%;
     padding-top: 160px;
   }
+  .skills .content {
+    padding-top: 80px;
+  }
 }
 @media (max-width: 992px) {
   footer h5,
   .copyright_container,
   article.contact.contact_with_info h2,
-  .product_container h1 {
+  .product_container h1,
+  .skills h2 {
     text-align: center;
   }
   article.contact.contact_with_info h2 {
@@ -905,22 +909,18 @@ article.contact.contact_with_info .map {
   }
   .copyright_container,
   .product_container .product_text_container,
-  article.product_container {
+  article.product_container,
+  .skills {
     padding-bottom: 25px;
   }
   footer .contact {
     padding-left: 0;
   }
-  .product_container img {
-    width: 750px;
-    margin: auto;
-    padding: 0 15px ;
-    display: block;
-  }
   .banner.about_page h5,
   .need_project h2 + p,
   .top_text h5,
-  article.contact h2 + p {
+  article.contact h2 + p,
+  .skills .skills_list {
     width: 100%;
   }
   article.contact h2 ~ .row {
@@ -932,11 +932,13 @@ article.contact.contact_with_info .map {
     padding-bottom: 15px;
     padding-top: 15px;
   }
+  .about.about_page .images,
+  .product_container .photo,
+  .skills .images {
+    padding: 0 15px;
+  }
   .about.about_page {
     padding-top: 30px;
-  }
-  .about.about_page .images {
-    padding: 0 15px;
   }
   .about.about_page h2 {
     text-align: center;

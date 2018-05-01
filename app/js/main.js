@@ -32,6 +32,9 @@ jQuery(document).ready(function($) {
 
     });
 
+  /* animated blocks */
+  
+
     jQuery('.work_container:not(.more_work_container), .icon_container, .service_container, .client').viewportChecker({
         classToAdd: 'animated zoomIn',
         repeat: false,
@@ -52,6 +55,9 @@ jQuery(document).ready(function($) {
         repeat: false,
     });
 
+    /* Smothy scrol */
+    
+
     jQuery('.main_menu  a').click(function(){
          var target = jQuery(this).attr('href');
       jQuery('html, body').animate({scrollTop: jQuery(target).offset().top}, 1000);
@@ -59,7 +65,10 @@ jQuery(document).ready(function($) {
     });
 
 
-  jQuery('.number_container h5').viewportChecker({
+    /* animateNumber */
+    
+
+  jQuery('.number_container h5, .percent>span').viewportChecker({
       callbackFunction: function(elem, action){
           var number =  elem.text();
           elem.animateNumber(
@@ -69,20 +78,26 @@ jQuery(document).ready(function($) {
       }
   });
 
+  /* Load More */
+
   jQuery('.load_more').click(function(event) {
     /* Act on the event */
     jQuery('.more_work_container').slideToggle().toggleClass('animated zoomIn');
     jQuery(this).html(jQuery(this).text() == 'hide more work' ? 'load more work' : 'hide more work');
   });
 
+  /* Slider */
+  
+
   jQuery('.slider_container').lightSlider({
       item: 1,
       auto:true,
       loop:true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       adaptiveHeight:true,
       controls: false,
       pager: true,
+      speed: 300,
   }); 
 
       //youtube script
@@ -129,18 +144,17 @@ jQuery(document).ready(function($) {
 
 
     jQuery('.progress-bar').viewportChecker({
-      callbackFunction: function(elem, action){
-         var percent = elem.attr('data-progress');
+        callbackFunction: function(elem, action){
+           var percent = elem.attr('data-progress');
 
-          elem.animate({
-          width: percent +'%'
-          }, 1300, function() {
-          // Animation complete.
-          });
-      }
-  });
+            elem.animate({
+            width: percent +'%'
+            }, 1300, function() {
+            // Animation complete.
+            });
+        }
+    });
     
-
 
   });
 
