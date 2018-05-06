@@ -14,9 +14,6 @@ display: none;
 	display: none;
 }
 
-//  .navbar-toggle i{
-// display: inline-block;
-// }
 
 .navbar-toggle {
 	cursor: pointer;
@@ -121,4 +118,27 @@ display: none;
 		padding-top: 0;
 	}
 	
+}
+
+input,
+textarea{
+	.transition;
+
+	&:focus{
+		-webkit-box-shadow: inset 0 0 1px 1px fade( @base_color, 40%);
+		box-shadow: inset 0 0 1px 1px fade( @base_color, 40%);
+	}
+
+	&:focus+.input-state{
+            width: 100%;
+        }
+
+        &:invalid:focus+.input-state {
+            background-color: red;
+        }
+
+        &:valid +.input-state {
+            background-color: green;
+            width: 100%;
+        }
 }

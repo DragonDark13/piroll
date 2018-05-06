@@ -333,9 +333,6 @@ footer ul[class*="menu"] li{
 		.mixin_right_trial;
 	}
 
-// .slider_container>:not([class*="1"]){
-// 	display: none;
-// }
 
 [class*="slide_"]{
 	padding: 174px 166.135px 81px;
@@ -415,6 +412,20 @@ footer ul[class*="menu"] li{
     	padding-left: 3px;
     }
 
+}
+
+.input-container{
+	position: relative;
+
+	.input-state{
+		position: absolute;
+		width: 0%;
+		left: 0;
+		right: 0;
+		bottom: 20px;
+		height: 2px;
+		.transition;
+	}
 }
 
 /*=====  End of One Page  ======*/
@@ -512,8 +523,6 @@ footer ul[class*="menu"] li{
 			padding-left: 15px;
 			padding-right: 15px;
 		}
-
-
 	}
 	
 }

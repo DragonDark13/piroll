@@ -62,7 +62,7 @@ footer{
 }
 
 .product_container{
-	background: #f6f6f6;
+	background: @colorGray;
 	 
 	.row{
 		margin: 0px;
@@ -141,21 +141,11 @@ footer{
 ================================*/
 
 .banner{
-	background-image: url(../../images/one_page_banner-min.jpg);
+	background-image: url(../images/one_page_banner-min.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
 	.base_effect;
-	
-
-	// .container{
-	// 	position: absolute;
-	// 	left: 0;
-	// 	right: 0;
-	// 	top: 0;
-	// 	bottom: 0;
-	// 	margin: auto;
-	// }
 
 	.banner_text{
 		padding-top: 210px;
@@ -188,7 +178,7 @@ footer{
 }
 
 h2+p{
-	color: #787878;
+	color: @colorDarkText;
 	.convert_ltrsp_ps_to_css(5,16);
 	width: 58%;
 	margin: 15px auto 33px;
@@ -307,7 +297,7 @@ h2+p{
 
 .load_more{
 	color: #8e8e8e;
-	background: #f5f5f5;
+	background: @colorLightGray;
     padding: 35px 0px;
     text-align: center;
     letter-spacing: 0.9px;
@@ -468,7 +458,7 @@ article.contact{
 	}
 
 	p{
-		color: #787878;
+		color: @colorDarkText;
 	}
 
 	.signature{
@@ -656,14 +646,6 @@ article.contact.contact_with_info{
 	.about.about_page{
 		padding-top: 30px;
 
-		
-
-		// .right_half_container{
-		// width: 100%;
-		// padding-right: 0;
-		// padding-top: 30px;
-		// }
-
 		h2{
 		text-align: center;
 		}
@@ -711,7 +693,6 @@ article.contact.contact_with_info{
 	.product_container img,
 	.banner .banner_text{
 		width: 100%;
-		// padding: 0;
 	}
 
 	.banner .banner_text,
@@ -733,13 +714,6 @@ article.contact.contact_with_info{
 		padding-left: 0;
 		padding-right: 0;
 	}
-
-	
-
-	// .about.about_page .images{
-	// 	padding: 0;
-	// }
-
 }
 
 @media (max-width: 767px) {

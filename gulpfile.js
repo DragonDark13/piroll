@@ -9,7 +9,7 @@
   source = require('vinyl-source-stream'),
   sourceFile = 'app/js/main.js',
   destFolder = 'app/js/',
-  destFile = 'findem.js',
+  destFile = 'bundle_script.js',
   uglify      = require('gulp-uglifyjs'), // Подключаем gulp-uglifyjs (для сжатия JS),
   cssnano     = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
   rename      = require('gulp-rename'), // Подключаем библиотеку для переименования файлов,
@@ -71,7 +71,7 @@ gulp.task('browserifyCss', function() {
 
 
 
-   gulp.task('css-libs', ['less', 'browserifyCss'], function() {
+   gulp.task('css-libs', ['less'], function() {
     return gulp.src('app/css/style.css') // Выбираем файл для минификации
         .pipe(cssnano()) // Сжимаем
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
@@ -112,8 +112,10 @@ gulp.task('watch', ['browser-sync', 'css-libs', 'script'], function() {
             }
         });
         
-        gulp.start('less');
+        gulp.start('css-libs');
     });
+
+   // gulp.watch('app/css/style.css',['css-libs']); 
      // gulp.watch('app/less/**/*.less', browserSync.reload);
     gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
     gulp.watch('app/js/node_mod_css.js',['browserifyCss']); 
@@ -142,9 +144,8 @@ gulp.task('img', function() {
 gulp.task('build', ['clean','img','less', 'script','browserifyCss'], function() {
 
     var buildCss = gulp.src([ // Переносим CSS стили в продакшен
-        'app/css/style.css',
-        'app/css/style.min.css',
-        'app/css/bootstrap.min.css'
+        'app/css/*.css',
+        '!app/css/bundle_node_mod.css'
         ])
     .pipe(gulp.dest('dist/css'))
 
@@ -152,8 +153,10 @@ gulp.task('build', ['clean','img','less', 'script','browserifyCss'], function() 
     .pipe(gulp.dest('dist/fonts'))
 
     var buildJs = gulp.src([
-      'app/js/findem.js',
-      'app/js/findem.min.js'
+      'app/js/bundle_script.js',
+      'app/js/bundle_script.min.js',
+      'app/js/bundle_node_mod_css.js',
+      'app/js/map_init.js'
     ]) // Переносим скрипты в продакшен
     .pipe(gulp.dest('dist/js'))
 
