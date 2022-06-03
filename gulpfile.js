@@ -1,11 +1,9 @@
-  var gulp = require('gulp'), // Подключаем Gulp
-  lessc = require('gulp-less'),
+  const gulp = require('gulp'), // Подключаем Gulp
   path = require('path'),
   less = require('less'),
   browserSync = require('browser-sync'); // Подключаем Browser Sync
   browserify = require('browserify'),
   watchify = require('watchify'),
-  gulp = require('gulp'),
   source = require('vinyl-source-stream'),
   sourceFile = 'app/js/main.js',
   destFolder = 'app/js/',
@@ -42,7 +40,7 @@ gulp.task('browserifyCss', function() {
 
 
     gulp.task('watch', function() {
-  var bundler = watchify(sourceFile);
+  const bundler = watchify(sourceFile);
   bundler.on('update', rebundle);
  
   function rebundle() {
@@ -57,7 +55,7 @@ gulp.task('browserifyCss', function() {
 
    gulp.task('less', function(){ // Создаем таск less
     return gulp.src('app/less/style.less') // Берем источник
-        .pipe(lessc().on( 'error', notify.onError(
+        .pipe(less().on( 'error', notify.onError(
       {
         message: "<%= error.message %>",
         title  : "LESS Error!"
@@ -71,19 +69,19 @@ gulp.task('browserifyCss', function() {
 
 
 
-   gulp.task('css-libs', ['less'], function() {
+   gulp.task('css-libs',  gulp.series('less', function() {
     return gulp.src('app/css/style.css') // Выбираем файл для минификации
         .pipe(cssnano()) // Сжимаем
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
         .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
-});
+}));
 
-    gulp.task('script',['browserify'], function() {
+    gulp.task('script',gulp.series('browserify', function() {
     return gulp.src('app/js/findem.js') // Выбираем файл для минификации
         .pipe(uglify()) // Сжимаем
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
         .pipe(gulp.dest('app/js')); // Выгружаем в папку app/css
-});
+}));
 
  
 
@@ -98,7 +96,7 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
 
 
 
-gulp.task('watch', ['browser-sync', 'css-libs', 'script'], function() {
+gulp.task('watch',gulp.series('browser-sync', 'css-libs', 'script', function() {
 
     // gulp.watch('app/less/**/*.less', ['less']); 
   // другие ресурсы
@@ -124,7 +122,7 @@ gulp.task('watch', ['browser-sync', 'css-libs', 'script'], function() {
     gulp.watch('app/images/**',browserSync.reload);
     gulp.watch('app/fonts/**',browserSync.reload);
 
-});
+}));
 
 gulp.task('clean', function() {
     return del.sync('dist'); // Удаляем папку dist перед сборкой
@@ -141,18 +139,18 @@ gulp.task('img', function() {
         .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('build', ['clean','img','less', 'script','browserifyCss'], function() {
+gulp.task('build', gulp.series('clean','img','less', 'script','browserifyCss', function() {
 
-    var buildCss = gulp.src([ // Переносим CSS стили в продакшен
+    const buildCss = gulp.src([ // Переносим CSS стили в продакшен
         'app/css/*.css',
         '!app/css/bundle_node_mod.css'
         ])
     .pipe(gulp.dest('dist/css'))
 
-    var buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
+    const buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
     .pipe(gulp.dest('dist/fonts'))
 
-    var buildJs = gulp.src([
+    const buildJs = gulp.src([
       'app/js/bundle_script.js',
       'app/js/bundle_script.min.js',
       'app/js/bundle_node_mod_css.js',
@@ -160,16 +158,16 @@ gulp.task('build', ['clean','img','less', 'script','browserifyCss'], function() 
     ]) // Переносим скрипты в продакшен
     .pipe(gulp.dest('dist/js'))
 
-    var buildHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
+    const buildHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
     .pipe(gulp.dest('dist'));
 
-    var BuildBootstrap = gulp.src('app/bootstrap/**/*')
+    const BuildBootstrap = gulp.src('app/bootstrap/**/*')
       .pipe(gulp.dest('dist/bootstrap'));
 
-});
+}));
 
 
-gulp.task('default', ['watch']);
+gulp.task('default',  gulp.series('watch'));
 
 gulp.task('clear', function () {
     return cache.clearAll();
