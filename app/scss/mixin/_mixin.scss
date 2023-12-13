@@ -1,0 +1,175 @@
+@use "sass:math";
+
+@mixin my_transform($transform) {
+  transform: $transform;
+}
+
+@mixin clearfix() {
+  &:before, &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+}
+
+@mixin opacity($alpha) {
+  $ms-alpha: $alpha * 100;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=$ms-alpha);
+  -moz-opacity: $alpha;
+  -khtml-opacity: $alpha;
+  opacity: $alpha;
+}
+
+@mixin border-radius($radius: 5px) {
+  border-radius: $radius;
+}
+
+@mixin transition($transition: 0.3s) {
+  transition: $transition;
+}
+
+@mixin box-shadow($string) {
+  box-shadow: $string;
+}
+
+$base_color: #10c9c3;
+$color_white: #FFF;
+$color_black: #000;
+$input_bd_color: #888;
+$textColor: #191919;
+$colorGray: #f6f6f6;
+$colorLightGray: #f5f5f5;
+$colorDarkGray: #1d1d1d;
+$colorDarkText: #787878;
+
+@mixin theme_button() {
+  background: $base_color;
+  color: $color_white;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  @include border-radius(0px);
+  @include transition;
+  padding: 0px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  @include convert_ltrsp_ps_to_css(100, 12);
+  line-height: 54px;
+  text-align: center;
+  display: inline-block;
+  font-family: $header_font_fam;
+  width: 180px;
+  text-align: center;
+  @include text_cut;
+
+  &:hover {
+    background-color: darken($base_color, 10%);
+  }
+}
+
+$default_font_fam: Nunito Sans;
+$header_font_fam: Montserrat;
+
+@mixin convert_ltrsp_ps_to_css($psltsp: 10, $fontsize: 38) {
+  $letter_spacing: math.div($psltsp * $fontsize, 1000);
+  letter-spacing: #{$letter_spacing}px;
+}
+
+@mixin base_effect() {
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin half_container_responsive() {
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    width: 970px / 2;
+  }
+
+  @media (min-width: 1230px) {
+    width: 1200px / 2;
+  }
+
+  @media (max-width: 992px) {
+    margin: auto;
+    padding: 0 0px 20px;
+  }
+}
+
+@mixin half_container() {
+  margin-left: auto;
+  padding: 0 0 0 30px;
+  @include half_container_responsive;
+}
+
+@mixin right_half_container() {
+  margin-right: auto;
+  padding: 0 30px 0 0;
+  @include half_container_responsive;
+}
+
+@mixin after_bl() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin text_cut() {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin hidden_placeholder() {
+  &:focus {
+    &::-webkit-input-placeholder {
+      @include opacity(0);
+    }
+
+    &::-moz-placeholder {
+      @include opacity(0);
+    }
+
+    &:-moz-placeholder {
+      @include opacity(0);
+    }
+
+    &:-ms-input-placeholder {
+      @include opacity(0);
+    }
+  }
+}
+
+input, textarea {
+  @include hidden_placeholder;
+}
+
+@mixin mixin_right_trial($width: 11px, $height: 17px, $background: $color_white) {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: $width solid $background;
+  border-top: math.div($height , 2) solid transparent;
+  border-bottom: math.div($height , 2) solid transparent;
+}
+
+
+@mixin productUl() {
+  font-size: 16px;
+  line-height: 24px;
+  @include convert_ltrsp_ps_to_css(16, 5);
+}

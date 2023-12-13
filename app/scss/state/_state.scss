@@ -1,0 +1,121 @@
+@import "../mixin/mixin";
+
+@media (max-width: 768px) {
+  .navbar-toggle .pe-7s-close {
+    display: none;
+  }
+
+  .js_response_meni .navbar-toggle .pe-7s-close {
+    display: block;
+  }
+
+  .js_response_meni .navbar-toggle .pe-7s-menu {
+    display: none;
+  }
+
+  .navbar-toggle {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 0;
+    margin-left: auto;
+    border: 1px solid $textColor;
+
+    i {
+      line-height: 30px;
+      color: $textColor;
+      font-size: 24px;
+      vertical-align: top;
+    }
+  }
+
+  .navbar-collapse {
+    margin-top: 15px;
+    border-top: 1px solid $textColor;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse.in {
+    display: block !important;
+    padding-top: 15px;
+  }
+}
+
+.header.one_page {
+  @media (min-width: 768px) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 999;
+
+    .main_menu li a {
+      padding: 0px 12.6px;
+    }
+
+    .main_menu li:last-child a {
+      padding-right: 0;
+    }
+  }
+}
+
+.work_container,
+.icon_container,
+.left_part,
+.right_part,
+.need_project .button,
+.service_container,
+.client {
+  @include opacity(0);
+  @include transition;
+
+  &.animated {
+    @include opacity(1);
+  }
+}
+
+.more_work_container {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .navbar-collapse.in {
+    padding-top: 0;
+  }
+}
+
+input,
+textarea {
+  @include transition;
+
+  &:focus {
+    -webkit-box-shadow: inset 0 0 1px 1px fade($base_color, 40%);
+    box-shadow: inset 0 0 1px 1px fade($base_color, 40%);
+  }
+
+  &:focus + .input-state {
+    width: 100%;
+  }
+
+  &:invalid:focus + .input-state {
+    background-color: red;
+  }
+
+  &:valid + .input-state {
+    background-color: green;
+    width: 100%;
+  }
+}
